@@ -16,16 +16,15 @@ enum APIError: Error {
     case statusError
 }
 
-
 final class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
     
-    func searchMusic(term: String) -> Observable<[Music]> {
-        let url = MusicURL.buildURL(term: term)
+    func searchMedia<T: Codable>(term: String, mediaType: MediaType, responseType: T.Type) -> Observable<T> {
+        let url = MediaURL.buildURL(term: term, mediaType: mediaType)
         
-        let result = Observable<[Music]>.create { observer in
+        return Observable<T>.create { observer in
             guard let url = URL(string: url) else {
                 observer.onError(APIError.invalidURL)
                 return Disposables.create()
@@ -48,9 +47,9 @@ final class NetworkManager {
                 }
                 
                 do {
-                    let decodedResponse = try JSONDecoder().decode(MusicResponse.self, from: data)
-                    observer.onNext(decodedResponse.results)
-                    observer.onCompleted() //🌟
+                    let decodedResponse = try JSONDecoder().decode(T.self, from: data)
+                    observer.onNext(decodedResponse)
+                    observer.onCompleted()
                 } catch {
                     observer.onError(error)
                 }
@@ -59,8 +58,5 @@ final class NetworkManager {
             
             return Disposables.create()
         }
-        
-        return result
     }
 }
-

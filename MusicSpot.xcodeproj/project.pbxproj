@@ -15,10 +15,17 @@
 		AA72723B2C65E0C9007551C4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AA72723A2C65E0C9007551C4 /* Base */; };
 		AA7272432C65E0ED007551C4 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272422C65E0ED007551C4 /* API.swift */; };
 		AA7272452C65E2C8007551C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272442C65E2C8007551C4 /* NetworkManager.swift */; };
-		AA7272472C65E2F1007551C4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272462C65E2F1007551C4 /* HomeViewController.swift */; };
+		AA7272472C65E2F1007551C4 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272462C65E2F1007551C4 /* HomeVC.swift */; };
 		AA72724A2C65E315007551C4 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = AA7272492C65E315007551C4 /* RxCocoa */; };
 		AA72724C2C65E315007551C4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA72724B2C65E315007551C4 /* RxSwift */; };
 		AA72724F2C65E349007551C4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AA72724E2C65E349007551C4 /* SnapKit */; };
+		AA7272512C65E648007551C4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272502C65E648007551C4 /* TabBarController.swift */; };
+		AA7272532C65E65E007551C4 /* MusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272522C65E65E007551C4 /* MusicVC.swift */; };
+		AA7272552C65E68A007551C4 /* MoviesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272542C65E68A007551C4 /* MoviesVC.swift */; };
+		AA7272572C65E6B7007551C4 /* AppsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272562C65E6B7007551C4 /* AppsVC.swift */; };
+		AA72725B2C65E8ED007551C4 /* PodcastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72725A2C65E8ED007551C4 /* PodcastVC.swift */; };
+		AA72725D2C65E903007551C4 /* EbookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72725C2C65E903007551C4 /* EbookVC.swift */; };
+		AA72725F2C65E99F007551C4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72725E2C65E99F007551C4 /* BaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +39,14 @@
 		AA72723C2C65E0C9007551C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA7272422C65E0ED007551C4 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		AA7272442C65E2C8007551C4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		AA7272462C65E2F1007551C4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AA7272462C65E2F1007551C4 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		AA7272502C65E648007551C4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		AA7272522C65E65E007551C4 /* MusicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicVC.swift; sourceTree = "<group>"; };
+		AA7272542C65E68A007551C4 /* MoviesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesVC.swift; sourceTree = "<group>"; };
+		AA7272562C65E6B7007551C4 /* AppsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsVC.swift; sourceTree = "<group>"; };
+		AA72725A2C65E8ED007551C4 /* PodcastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastVC.swift; sourceTree = "<group>"; };
+		AA72725C2C65E903007551C4 /* EbookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EbookVC.swift; sourceTree = "<group>"; };
+		AA72725E2C65E99F007551C4 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +82,8 @@
 		AA72722D2C65E0C7007551C4 /* MusicSpot */ = {
 			isa = PBXGroup;
 			children = (
-				AA7272422C65E0ED007551C4 /* API.swift */,
-				AA7272442C65E2C8007551C4 /* NetworkManager.swift */,
-				AA7272462C65E2F1007551C4 /* HomeViewController.swift */,
+				AA7272592C65E71E007551C4 /* View */,
+				AA7272582C65E70F007551C4 /* API */,
 				AA72722E2C65E0C7007551C4 /* AppDelegate.swift */,
 				AA7272302C65E0C7007551C4 /* SceneDelegate.swift */,
 				AA7272322C65E0C7007551C4 /* ViewController.swift */,
@@ -80,6 +93,30 @@
 				AA72723C2C65E0C9007551C4 /* Info.plist */,
 			);
 			path = MusicSpot;
+			sourceTree = "<group>";
+		};
+		AA7272582C65E70F007551C4 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AA7272422C65E0ED007551C4 /* API.swift */,
+				AA7272442C65E2C8007551C4 /* NetworkManager.swift */,
+				AA7272502C65E648007551C4 /* TabBarController.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		AA7272592C65E71E007551C4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AA7272462C65E2F1007551C4 /* HomeVC.swift */,
+				AA7272522C65E65E007551C4 /* MusicVC.swift */,
+				AA7272542C65E68A007551C4 /* MoviesVC.swift */,
+				AA72725A2C65E8ED007551C4 /* PodcastVC.swift */,
+				AA72725C2C65E903007551C4 /* EbookVC.swift */,
+				AA7272562C65E6B7007551C4 /* AppsVC.swift */,
+				AA72725E2C65E99F007551C4 /* BaseView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,11 +200,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA7272332C65E0C7007551C4 /* ViewController.swift in Sources */,
+				AA72725F2C65E99F007551C4 /* BaseView.swift in Sources */,
+				AA72725D2C65E903007551C4 /* EbookVC.swift in Sources */,
 				AA72722F2C65E0C7007551C4 /* AppDelegate.swift in Sources */,
 				AA7272452C65E2C8007551C4 /* NetworkManager.swift in Sources */,
 				AA7272432C65E0ED007551C4 /* API.swift in Sources */,
+				AA7272532C65E65E007551C4 /* MusicVC.swift in Sources */,
+				AA7272512C65E648007551C4 /* TabBarController.swift in Sources */,
+				AA7272572C65E6B7007551C4 /* AppsVC.swift in Sources */,
 				AA7272312C65E0C7007551C4 /* SceneDelegate.swift in Sources */,
-				AA7272472C65E2F1007551C4 /* HomeViewController.swift in Sources */,
+				AA7272472C65E2F1007551C4 /* HomeVC.swift in Sources */,
+				AA7272552C65E68A007551C4 /* MoviesVC.swift in Sources */,
+				AA72725B2C65E8ED007551C4 /* PodcastVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
