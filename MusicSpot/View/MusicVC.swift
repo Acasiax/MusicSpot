@@ -46,7 +46,7 @@ class MusicVC: UIViewController {
     func bindSearchBar() {
         searchBar.rx.text.orEmpty
             .distinctUntilChanged()
-            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
             .flatMapLatest { term -> Observable<MusicResponse> in
                 return NetworkManager.shared.searchMedia(term: term, mediaType: .music, responseType: MusicResponse.self)
                     .catchAndReturn(MusicResponse(results: []))
@@ -65,7 +65,7 @@ class MusicVC: UIViewController {
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Music.self)
-            .subscribe(onNext: { [weak self] music in
+            .subscribe(onNext: { music in
                 print("Selected music: \(music.trackName)")
                 // 추가적으로 상세 화면 이동 등을 여기에 구현할 수 있습니다.
             })

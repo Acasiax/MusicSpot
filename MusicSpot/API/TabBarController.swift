@@ -59,7 +59,13 @@ class TabBarControllerFactory {
     static func createMainTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
 
-        let viewControllers = MainTab.allCases.map { $0.viewController }
+        // 특정 조건에 따라 TabBar의 순서를 변경할 수 있도록 유연하게 설정
+        var viewControllers = [UIViewController]()
+        let tabs: [MainTab] = [.music, .movies, .podcast, .books, .search]
+
+        for tab in tabs {
+            viewControllers.append(tab.viewController)
+        }
 
         tabBarController.viewControllers = viewControllers
         return tabBarController

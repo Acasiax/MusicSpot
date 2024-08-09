@@ -50,11 +50,12 @@ struct Software: Codable {
     let artistName: String //개발자 이름
     let description: String?
     let price: Double?
-    let artworkUrl100: String?
+    let artworkUrl100: String?  // 앱 아이콘
     let averageUserRating: Double?
     let primaryGenreName: String?
     let supportedDevices: [String]?
     let version: String?
+    let screenshotUrls: [String]? // 스크린샷 URL 목록
 }
 
 struct PodcastResponse: Codable {
