@@ -68,7 +68,7 @@ final class AppsVC: UIViewController {
         
         tableView.rx.modelSelected(Software.self)
             .subscribe(onNext: { software in
-                print("Selected app: \(software.trackName)")
+                print("앱을 선택했습니다.: \(software.trackName)")
                 // 추가적으로 상세 화면 이동 등을 여기에 구현하기 이따가.
             })
             .disposed(by: disposeBag)
