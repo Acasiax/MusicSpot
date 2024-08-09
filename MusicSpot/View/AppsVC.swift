@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 final class AppsVC: UIViewController {
     
@@ -127,23 +128,11 @@ class CustomTableViewCell: UITableViewCell {
         titleLabel.text = model.trackName
         subtitleLabel.text = model.artistName
         if let urlString = model.artworkUrl100, let url = URL(string: urlString) {
-            // 이미지 비동기 로딩 (예: SDWebImage 또는 URLSession을 활용한 간단한 로딩)
-            iconImageView.load(url: url)
+            // Kingfisher를 사용한 이미지 비동기 로딩 및 캐싱
+            iconImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "app.fill"))
         } else {
             iconImageView.image = UIImage(systemName: "app.fill") // 기본 이미지
         }
     }
-}
 
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url),
-               let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self?.image = image
-                }
-            }
-        }
-    }
 }

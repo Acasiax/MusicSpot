@@ -28,6 +28,7 @@
 		AA72725F2C65E99F007551C4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72725E2C65E99F007551C4 /* BaseView.swift */; };
 		AA7272622C6603F5007551C4 /* AppsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272612C6603F5007551C4 /* AppsTableViewCell.swift */; };
 		AA7272642C66040F007551C4 /* AppsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272632C66040F007551C4 /* AppsCollectionViewCell.swift */; };
+		AA7272672C660BE7007551C4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AA7272662C660BE7007551C4 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA7272672C660BE7007551C4 /* Kingfisher in Frameworks */,
 				AA72724F2C65E349007551C4 /* SnapKit in Frameworks */,
 				AA72724C2C65E315007551C4 /* RxSwift in Frameworks */,
 				AA72724A2C65E315007551C4 /* RxCocoa in Frameworks */,
@@ -153,6 +155,7 @@
 				AA7272492C65E315007551C4 /* RxCocoa */,
 				AA72724B2C65E315007551C4 /* RxSwift */,
 				AA72724E2C65E349007551C4 /* SnapKit */,
+				AA7272662C660BE7007551C4 /* Kingfisher */,
 			);
 			productName = MusicSpot;
 			productReference = AA72722B2C65E0C7007551C4 /* MusicSpot.app */;
@@ -185,6 +188,7 @@
 			packageReferences = (
 				AA7272482C65E315007551C4 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				AA72724D2C65E349007551C4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				AA7272652C660BE7007551C4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = AA72722C2C65E0C7007551C4 /* Products */;
 			projectDirPath = "";
@@ -476,6 +480,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		AA7272652C660BE7007551C4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -493,6 +505,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AA72724D2C65E349007551C4 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		AA7272662C660BE7007551C4 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA7272652C660BE7007551C4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
