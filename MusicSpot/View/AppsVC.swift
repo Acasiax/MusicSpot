@@ -43,7 +43,7 @@ final class AppsVC: UIViewController {
         
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
-      //  tableView.estimatedRowHeight = 200 // 대략적인 높이 설정
+        tableView.estimatedRowHeight = 200 // 대략적인 높이 설정
     }
     
     func bindSearchBar() {
@@ -117,29 +117,30 @@ class SearchTableViewCell: UITableViewCell {
         
         iconImageView.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top).offset(10)
-            make.left.equalToSuperview().offset(10)
+            make.left.equalTo(contentView.snp.left).offset(10)
             make.width.height.equalTo(60)
         }
 
         titleLabel.snp.makeConstraints { make in
             make.left.equalTo(iconImageView.snp.right).offset(10)
             make.top.equalTo(contentView.snp.top).offset(10)
-            make.right.equalToSuperview().offset(-10)
+            make.right.equalTo(contentView.snp.right).offset(-10)
         }
-        
+
         subtitleLabel.snp.makeConstraints { make in
             make.left.equalTo(iconImageView.snp.right).offset(10)
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
-            make.right.equalToSuperview().offset(-10)
+            make.right.equalTo(contentView.snp.right).offset(-10)
         }
-        
+
         collectionView.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(10)
+            make.left.equalTo(contentView.snp.left).offset(10)
             make.top.equalTo(iconImageView.snp.bottom).offset(10)
-            make.right.equalToSuperview().offset(-10)
-            make.bottom.equalToSuperview().offset(-10)
-            make.height.greaterThanOrEqualTo(150).priority(.medium) // 높이를 최소 높이로 설정하고, 필요에 따라 크기 조정 가능하도록 설정
+            make.right.equalTo(contentView.snp.right).offset(-10)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-10)
+            make.height.greaterThanOrEqualTo(150).priority(.medium)
         }
+
     }
 
     func setupCollectionView() {
@@ -162,7 +163,7 @@ class SearchTableViewCell: UITableViewCell {
         // 스크린샷 데이터 설정
         screenshots = model.screenshotUrls ?? []
         collectionView.reloadData()
-        collectionView.layoutIfNeeded() // 레이아웃을 갱신하여 컬렉션 뷰의 크기가 정확하게 반영되도록 함
+       
     }
 }
 
