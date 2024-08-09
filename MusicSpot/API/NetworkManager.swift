@@ -49,14 +49,15 @@ final class NetworkManager {
                 do {
                     let decodedResponse = try JSONDecoder().decode(T.self, from: data)
                     observer.onNext(decodedResponse)
-                    observer.onCompleted()
+                    observer.onCompleted() //🌟🌟
                 } catch {
+                    print("응답이 왔으나 실패")
                     observer.onError(error)
                 }
                 
             }.resume()
             
             return Disposables.create()
-        }
+        }.debug("미디어 조회")
     }
 }
