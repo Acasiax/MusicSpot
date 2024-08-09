@@ -15,7 +15,7 @@ class MusicVC: UIViewController {
     let searchBar = UISearchBar()
     let tableView = UITableView()
     let disposeBag = DisposeBag()
-    let results = BehaviorRelay<[Movie]>(value: [])
+    let results = BehaviorRelay<[Music]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +47,9 @@ class MusicVC: UIViewController {
         searchBar.rx.text.orEmpty
             .distinctUntilChanged()
             .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
-            .flatMapLatest { term -> Observable<MovieResponse> in
-                return NetworkManager.shared.searchMedia(term: term, mediaType: .music, responseType: MovieResponse.self)
-                    .catchAndReturn(MovieResponse(results: []))
+            .flatMapLatest { term -> Observable<MusicResponse> in
+                return NetworkManager.shared.searchMedia(term: term, mediaType: .music, responseType: MusicResponse.self)
+                    .catchAndReturn(MusicResponse(results: []))
             }
             .map { $0.results }
             .bind(to: results)
@@ -64,11 +64,13 @@ class MusicVC: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(Movie.self)
-            .subscribe(onNext: { [weak self] movie in
-                print("Selected movie: \(movie.trackName)")
-                
+        tableView.rx.modelSelected(Music.self)
+            .subscribe(onNext: { [weak self] music in
+                print("Selected music: \(music.trackName)")
+                // 추가적으로 상세 화면 이동 등을 여기에 구현할 수 있습니다.
             })
             .disposed(by: disposeBag)
     }
 }
+
+

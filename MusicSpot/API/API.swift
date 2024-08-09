@@ -68,3 +68,33 @@ struct Podcast: Codable {
     let primaryGenreName: String?
     let feedUrl: String?
 }
+
+struct MusicResponse: Codable {
+    let results: [Music]
+}
+
+struct Music: Codable {
+    let trackName: String
+    let artistName: String
+    let collectionName: String?
+    let primaryGenreName: String?
+    let releaseDate: String?
+    let trackPrice: Double?
+    let artworkUrl100: String?
+    let previewUrl: String?
+}
+
+struct EbookResponse: Codable {
+    let results: [Ebook]
+}
+
+struct Ebook: Codable {
+    let trackName: String
+    let artistName: String
+    let description: String?
+    let price: Double?
+    let artworkUrl100: String?
+    let averageUserRating: Double?
+    let primaryGenreName: String?
+    let releaseDate: String?
+}
