@@ -46,8 +46,8 @@ struct SoftwareResponse: Codable {
 }
 
 struct Software: Codable {
-    let trackName: String
-    let artistName: String
+    let trackName: String  // 앱 이름
+    let artistName: String //개발자 이름
     let description: String?
     let price: Double?
     let artworkUrl100: String?
