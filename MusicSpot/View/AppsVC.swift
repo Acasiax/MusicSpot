@@ -67,9 +67,12 @@ final class AppsVC: UIViewController {
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Software.self)
-            .subscribe(onNext: { software in
+            .asDriver()
+            .drive(onNext: { software in
                 print("앱을 선택했습니다.: \(software.trackName)")
-                // 추가적으로 상세 화면 이동 등을 여기에 구현하기 이따가.
+                // 뷰이동은 UI작업이니깐 드라이브로 했는데 과연 맞는것인가..
+                let detailVC = DetailViewController(software: software)
+                self.navigationController?.pushViewController(detailVC, animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -77,3 +80,36 @@ final class AppsVC: UIViewController {
 
 
 
+
+ class DetailViewController: UIViewController {
+    
+    let software: Software
+    
+    init(software: Software) {
+        self.software = software
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        setupUI()
+    }
+    
+    private func setupUI() {
+        let titleLabel = UILabel()
+        titleLabel.text = software.trackName
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        titleLabel.textAlignment = .center
+        
+        view.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.left.right.equalToSuperview().inset(20)
+        }
+    }
+}

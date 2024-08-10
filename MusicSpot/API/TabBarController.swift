@@ -47,10 +47,9 @@ enum MainTab: CaseIterable {
         case .books: viewController = EbookVC()
         case .search: viewController = AppsVC()
         }
-
-        viewController.view.backgroundColor = .white
-        viewController.tabBarItem = UITabBarItem(title: self.title, image: self.image, tag: self.hashValue)
-        return viewController
+        let navController = UINavigationController(rootViewController: viewController)
+               navController.tabBarItem = UITabBarItem(title: self.title, image: self.image, tag: self.hashValue)
+               return navController
     }
 }
 
