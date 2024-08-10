@@ -26,8 +26,7 @@
 		AA72725B2C65E8ED007551C4 /* PodcastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72725A2C65E8ED007551C4 /* PodcastVC.swift */; };
 		AA72725D2C65E903007551C4 /* EbookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72725C2C65E903007551C4 /* EbookVC.swift */; };
 		AA72725F2C65E99F007551C4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72725E2C65E99F007551C4 /* BaseView.swift */; };
-		AA7272622C6603F5007551C4 /* AppsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272612C6603F5007551C4 /* AppsTableViewCell.swift */; };
-		AA7272642C66040F007551C4 /* AppsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272632C66040F007551C4 /* AppsCollectionViewCell.swift */; };
+		AA7272642C66040F007551C4 /* AppsTableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7272632C66040F007551C4 /* AppsTableCollection.swift */; };
 		AA7272672C660BE7007551C4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AA7272662C660BE7007551C4 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +49,7 @@
 		AA72725A2C65E8ED007551C4 /* PodcastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastVC.swift; sourceTree = "<group>"; };
 		AA72725C2C65E903007551C4 /* EbookVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EbookVC.swift; sourceTree = "<group>"; };
 		AA72725E2C65E99F007551C4 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		AA7272612C6603F5007551C4 /* AppsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsTableViewCell.swift; sourceTree = "<group>"; };
-		AA7272632C66040F007551C4 /* AppsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCollectionViewCell.swift; sourceTree = "<group>"; };
+		AA7272632C66040F007551C4 /* AppsTableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsTableCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +113,8 @@
 		AA7272592C65E71E007551C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AA7272462C65E2F1007551C4 /* HomeVC.swift */,
-				AA7272522C65E65E007551C4 /* MusicVC.swift */,
-				AA7272542C65E68A007551C4 /* MoviesVC.swift */,
-				AA72725A2C65E8ED007551C4 /* PodcastVC.swift */,
-				AA72725C2C65E903007551C4 /* EbookVC.swift */,
 				AA7272562C65E6B7007551C4 /* AppsVC.swift */,
-				AA72725E2C65E99F007551C4 /* BaseView.swift */,
+				AA7272682C66ED08007551C4 /* OtherView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,10 +122,22 @@
 		AA7272602C6603D7007551C4 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				AA7272612C6603F5007551C4 /* AppsTableViewCell.swift */,
-				AA7272632C66040F007551C4 /* AppsCollectionViewCell.swift */,
+				AA7272632C66040F007551C4 /* AppsTableCollection.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		AA7272682C66ED08007551C4 /* OtherView */ = {
+			isa = PBXGroup;
+			children = (
+				AA7272462C65E2F1007551C4 /* HomeVC.swift */,
+				AA7272522C65E65E007551C4 /* MusicVC.swift */,
+				AA7272542C65E68A007551C4 /* MoviesVC.swift */,
+				AA72725A2C65E8ED007551C4 /* PodcastVC.swift */,
+				AA72725C2C65E903007551C4 /* EbookVC.swift */,
+				AA72725E2C65E99F007551C4 /* BaseView.swift */,
+			);
+			path = OtherView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,7 +223,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA7272332C65E0C7007551C4 /* ViewController.swift in Sources */,
-				AA7272622C6603F5007551C4 /* AppsTableViewCell.swift in Sources */,
 				AA72725F2C65E99F007551C4 /* BaseView.swift in Sources */,
 				AA72725D2C65E903007551C4 /* EbookVC.swift in Sources */,
 				AA72722F2C65E0C7007551C4 /* AppDelegate.swift in Sources */,
@@ -231,7 +235,7 @@
 				AA7272472C65E2F1007551C4 /* HomeVC.swift in Sources */,
 				AA7272552C65E68A007551C4 /* MoviesVC.swift in Sources */,
 				AA72725B2C65E8ED007551C4 /* PodcastVC.swift in Sources */,
-				AA7272642C66040F007551C4 /* AppsCollectionViewCell.swift in Sources */,
+				AA7272642C66040F007551C4 /* AppsTableCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,17 +27,11 @@ final class AppsVC: UIViewController {
     
     func setupUI() {
         view.backgroundColor = .white
-        view.addSubview(searchBar)
+        navigationItem.titleView = searchBar // 서치바를 네비게이션 타이틀로 설정
         view.addSubview(tableView)
         
-        searchBar.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(50)
-        }
-        
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.bottom.equalToSuperview()
         }
         
@@ -70,7 +64,6 @@ final class AppsVC: UIViewController {
             .asDriver()
             .drive(onNext: { software in
                 print("앱을 선택했습니다.: \(software.trackName)")
-                // 뷰이동은 UI작업이니깐 드라이브로 했는데 과연 맞는것인가..
                 let detailVC = DetailViewController(software: software)
                 self.navigationController?.pushViewController(detailVC, animated: true)
             })
@@ -78,10 +71,7 @@ final class AppsVC: UIViewController {
     }
 }
 
-
-
-
- class DetailViewController: UIViewController {
+class DetailViewController: UIViewController {
     
     let software: Software
     
