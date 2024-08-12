@@ -16,18 +16,19 @@ final class AppsVC: UIViewController {
     let searchBar = UISearchBar()
     let tableView = UITableView()
     let disposeBag = DisposeBag()
-    let results = BehaviorRelay<[Software]>(value: [])
+    
+    // ViewModel 인스턴스 생성
+    let viewModel = AppsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        bindSearchBar()
-        bindTableView()
+        bindViewModel()
     }
     
     func setupUI() {
         view.backgroundColor = .white
-        navigationItem.titleView = searchBar // 서치바를 네비게이션 타이틀로 설정
+        navigationItem.titleView = searchBar
         view.addSubview(tableView)
         
         tableView.snp.makeConstraints { make in
@@ -37,25 +38,16 @@ final class AppsVC: UIViewController {
         
         tableView.register(AppsTableViewCell.self, forCellReuseIdentifier: AppsTableViewCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 200 // 대략적인 높이 설정
+        tableView.estimatedRowHeight = 200
     }
     
-    func bindSearchBar() {
-        searchBar.rx.text.orEmpty
-            .distinctUntilChanged()
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
-            .flatMapLatest { term -> Observable<SoftwareResponse> in
-                return NetworkManager.shared.searchMedia(term: term, mediaType: .software, responseType: SoftwareResponse.self)
-                    .catchAndReturn(SoftwareResponse(results: []))
-            }
-            .map { $0.results }
-            .bind(to: results)
-            .disposed(by: disposeBag)
-    }
-    
-    func bindTableView() {
-        results
-            .bind(to: tableView.rx.items(cellIdentifier: AppsTableViewCell.identifier, cellType: AppsTableViewCell.self)) { row, element, cell in
+    func bindViewModel() {
+        let input = AppsViewModel.Input(searchTerm: searchBar.rx.text.orEmpty.asObservable())
+        
+        let output = viewModel.transform(input: input)
+        
+        output.results
+            .drive(tableView.rx.items(cellIdentifier: AppsTableViewCell.identifier, cellType: AppsTableViewCell.self)) { row, element, cell in
                 cell.configure(with: element)
             }
             .disposed(by: disposeBag)
@@ -70,6 +62,7 @@ final class AppsVC: UIViewController {
             .disposed(by: disposeBag)
     }
 }
+
 
 class DetailViewController: UIViewController {
     
@@ -91,6 +84,8 @@ class DetailViewController: UIViewController {
     }
     
     private func setupUI() {
+
+        
         let titleLabel = UILabel()
         titleLabel.text = software.trackName
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
@@ -103,3 +98,8 @@ class DetailViewController: UIViewController {
         }
     }
 }
+
+
+
+
+   
