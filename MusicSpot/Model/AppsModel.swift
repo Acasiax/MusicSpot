@@ -9,6 +9,15 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+enum NetworkError: Error {
+    case invalidResponse
+    case noData
+    case failedRequest(String) // 에러 메시지를 포함할 수 있는 케이스
+    case unknown
+}
+
+
+
 protocol BaseViewModel {
     associatedtype Input
     associatedtype Output
