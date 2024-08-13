@@ -50,6 +50,7 @@ final class AppsViewModel: BaseViewModel {
                         print("에러 발생: \(error.localizedDescription)")
                         return Observable.just([]) //🌟🔥
                     }
+                
             }
             .asDriver(onErrorJustReturn: [])
         
@@ -58,3 +59,17 @@ final class AppsViewModel: BaseViewModel {
 }
 
 
+
+
+// 복습
+//func childObservable() -> Observable<Int> {
+//    return Observable.create { observer in
+//        
+////            observer.onNext(Int.random(in: 1...10))
+////            observer.onCompleted() // 정상적으로 종료가 된 것
+//        
+//        observer.onError(JackError.invalidEmail)
+//        
+//        return Disposables.create()
+//    }.debug("childObservable")
+//}
